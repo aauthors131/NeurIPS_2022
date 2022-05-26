@@ -71,6 +71,8 @@ pretrained_model = "test/Model/epoch=1699-step=3400.ckpt"
 source_channel = ['CD11c', 'CD21', 'CD15', 'CD4', 'CD31', 'CD34']
 target_channel = ['CD8', 'CD45'] 
 ```
+#### Reference
+Some of the codes were derived from [this repo.](https://github.com/JeongHyunJin/Pix2PixHD)
 
 ## Options
 For more options see the Pix2PixHD_Options.py file
