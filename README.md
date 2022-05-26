@@ -31,7 +31,7 @@ channel_id_for_training = {"uid": "1", "source_channel_ids": [1,2,3,4,5], "targe
 ```
 ## Training
 ```sh
-python3 train.py 
+python3 train.py \
 --raw_data_dir "Data/" \
 --tb_logger_name "tb_logger" --dataset_name "codex" \
 --channel_ids "channel_id_distribution/cids.json"
