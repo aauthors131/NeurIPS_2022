@@ -114,7 +114,6 @@ if __name__ == '__main__':
     percentage_from_each_cluster =  args.percentage_from_each_cluster
 
     files = glob.glob(data_dir + '*.tif')
-    filse = files[:1]
 
     with open(channel_names_dir) as fp:
         lines = fp.readlines()
