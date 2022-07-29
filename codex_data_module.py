@@ -109,33 +109,6 @@ def test_mode_image_given():
     print(type(train_data))
     print(src_image.shape, tgt_image.shape)
 
-def test():
-    raw_data_dir = '/home/mxs2361/Dataset/codex_data/raw_data_scaled/'
-
-    #Test with the split data
-    # c = CODEXDataModule(src_data_dir = '/home/mxs2361/Dataset/codex_data/Data_scaled/train_A/', \
-    #         tgt_data_dir='/home/mxs2361/Dataset/codex_data/Data_scaled/train_B/' )
-    #Test with raw_data
-    with open('channel_ids.json') as fp:
-        channel_ids = json.load(fp)
-    c = CODEXDataModule(src_data_dir = '/home/mxs2361/Dataset/codex_data/Data_scaled/train_A/', \
-            tgt_data_dir='/home/mxs2361/Dataset/codex_data/Data_scaled/train_B/', \
-                src_ch=16, tgt_ch=13,
-            src_channel_ids= channel_ids['source_channel_ids'],
-            tgt_channel_ids= channel_ids['target_channel_ids'],
-            raw_data_dir=raw_data_dir, data_mode='raw_data' )
-    c.prepare_data()
-    train_batch = c.train_dataloader()
-    train_data = next(iter(train_batch))
-    src_image, tgt_image = train_data
-
-    print(len(train_data))
-    print(type(train_data))
-    print(src_image.shape, tgt_image.shape)
-    # src_img, tgt_img = train_data
-    # print('src image shape ', src_img[0].shape)
-    # print('target image shape ', tgt_img[0].shape)
-
 
 if __name__ == '__main__':
     test()
