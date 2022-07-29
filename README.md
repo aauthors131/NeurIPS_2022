@@ -13,7 +13,7 @@ NVIDIA GPU + CUDA cuDNN
 
 First you have to clone the repository and install the required libraries using the following commands (GPU required).
 ```sh
-git clone https://github.com/aauthors131/NeurIPS_2022
+https://github.com/aauthors131/multiplexed-image-synthesis
 ```
 Install the other required libraries
 ```sh
