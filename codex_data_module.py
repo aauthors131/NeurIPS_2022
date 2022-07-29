@@ -1,8 +1,4 @@
 
-'''
-Author: mxs2361
-
-'''
 
 
 from glob import glob
