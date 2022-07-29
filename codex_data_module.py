@@ -48,30 +48,7 @@ class CODEXDataModule(pl.LightningDataModule):
             
             self.images = [(src.astype(np.float32), tgt.astype(np.float32)) for src, tgt in zip(self.src_images, self.tgt_images)]
         
-        elif self.data_mode == 'raw_data_hubmap':
-            import pandas as pd
-            raw_file_dir = self.raw_data_dir
-            df = pd.read_csv('/home/mxs2361/projects/hubmap_data_analysis/codex_meta_info.csv')
-
-            images_29_channel = df[df['channel'] == 29] # Testing
-            filenames = list(images_29_channel['filename'])
-
-            print(len(filenames))
-            print(filenames)
-            #raw_data_scaled/HBM347.PSLC.425/reg1_stitched_expressions.ome.tif
-            print(raw_file_dir)
-            filepaths = [raw_file_dir + filename for filename in filenames]
-            print(filepaths)
-
-            filepaths = [raw_file_dir + '_'+filename.split('/')[-2] \
-                + '_reg1_stitched_expressions.ome.tif' for filename in filenames] 
-
-            t =  TrainingFileCreation(raw_filepaths = filepaths, rescale_shape = (1024, 1024), tiles=self.tiles, write_to_disk = False,\
-                input_channel= self.src_ch, output_channel = self.tgt_ch, \
-                    input_channel_ids = self.src_channel_ids, target_channel_ids=self.tgt_channel_ids,rescale_and_min_exposure = False,
-            )
-            self.src_images, self.tgt_images = t.create_data_from_raw_files()
-            self.images = [(src.astype(np.float32), tgt.astype(np.float32)) for src, tgt in zip(self.src_images, self.tgt_images)]
+        
         
         
         elif self.data_mode == 'raw_data':
